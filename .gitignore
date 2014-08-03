@@ -1,0 +1,11 @@
+#Settings
+
+*/target/*
+*/bin/*
+.idea
+target
+*.iml
+*.*~
+
+# Log files
+# jmeter.log
