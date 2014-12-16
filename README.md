@@ -1,3 +1,3 @@
 Project For Practice
 ======================================================
-Technologies practice project
+Project for to practice in technologies.
