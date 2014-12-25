@@ -5,9 +5,31 @@ import com.sun.java.accessibility.util.Translator;
 /**
  * Created by imalysh on 12/17/2014.
  */
+interface I1 {
+    int meth(int i);
+}
+
+interface I2 {
+    int meth(int i);
+}
+
+class C implements I1, I2 {
+
+    @Override
+    public int meth(int i) {
+        return 0;
+    }
+
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("garbage");
+    }
+}
+
 class Opa {
 
-    static final String str="s";
+    static final String str = "s";
 
     static {
         System.out.println("static block of Opa");
@@ -113,5 +135,13 @@ public class Starter {
         Class opaClass = Class.forName("stingion.classloading.Opa", false, Opa.class.getClassLoader());
         System.out.println(opaClass.getDeclaredConstructors()[0]);
         System.out.println(Opa.str);
+
+        Object obj = new Object();
+
+        C c = new C();
+        System.out.println(new C().getClass().getClassLoader());
+        System.out.println(obj.getClass().getClassLoader());
+        System.gc();
+        System.out.println(c.getClass().getClassLoader());
     }
 }
