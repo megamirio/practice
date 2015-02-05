@@ -1,7 +1,5 @@
 package stingion.classloading;
 
-import com.sun.java.accessibility.util.Translator;
-
 /**
  * Created by imalysh on 12/17/2014.
  */
