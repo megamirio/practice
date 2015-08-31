@@ -5,6 +5,6 @@ package stingion;
  */
 public class Practice2 {
     public String getWord() {
-        return "It's word!";
+        return "It's word 222!";
     }
 }
