@@ -3,7 +3,8 @@
  */
 public class Practice1 {
     public static void main(String[] args) {
-        String str = String.format("ABC %s = %s", "abc", 22);
+        String[] args1 = {"a", "b"};
+        String str = String.format("ABC %s = %s : %s", args1, "abc");
         System.out.println(str);
     }
 }
