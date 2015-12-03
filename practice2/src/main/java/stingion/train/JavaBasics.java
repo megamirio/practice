@@ -1,7 +1,6 @@
-package stingion;
+package stingion.train;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 

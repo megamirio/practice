@@ -27,7 +27,7 @@ class Lamp {
         System.out.println(isOn ? "ON" : "OFF");
         Thread.sleep(500);
         notify();
-        wait();
+        wait();new Thread().getState();
     }
 }
 
