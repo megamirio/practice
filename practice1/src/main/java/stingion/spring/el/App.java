@@ -15,5 +15,17 @@ public class App {
 
         obj = (Customer) context.getBean("customerBean2");
         System.out.println(obj);
+        System.out.println("-------------------");
+        Oxy oxy = context.getBean("oxy", Oxy.class);
+        InOxy inOxy = oxy.getInOxy();
+
+        System.out.println(oxy);
+        System.out.println(inOxy);
+
+        oxy = context.getBean("oxy", Oxy.class);
+        inOxy = oxy.getInOxy();
+
+        System.out.println(oxy);
+        System.out.println(inOxy);
     }
 }
