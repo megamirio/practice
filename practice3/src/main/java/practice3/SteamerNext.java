@@ -42,9 +42,12 @@ public class SteamerNext {
 
         //Optional.of - throws NullPointerException if passed parameter is null
         Optional<Integer> b = Optional.of(value2);
-        System.out.println(sum(a,b));
+        System.out.println(sum(a, b));
+        System.out.println("************************");
+        strings.stream().forEach(e -> System.out.println("This is good: " + e));
     }
-    public static Integer sum(Optional<Integer> a, Optional<Integer> b){
+
+    public static Integer sum(Optional<Integer> a, Optional<Integer> b) {
 
         //Optional.isPresent - checks the value is present or not
 
