@@ -19,4 +19,13 @@
         <constructor-arg value="Hello5"/>
     </bean>
 
+    <!--<bean id="without" class="stingion.practice2.Without">-->
+        <!--<property name="inter" value="2"/>-->
+        <!--<property name="str" value="abc"/>-->
+    <!--</bean>-->
+
+    <bean class="java.lang.Integer">
+        <constructor-arg value="3"/>
+    </bean>
+
 </beans>

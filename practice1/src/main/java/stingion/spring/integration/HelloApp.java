@@ -17,7 +17,7 @@ import stingion.practice2.SayWord;
 public class HelloApp {
     public static void main(String[] args) throws InterruptedException {
 
-        System.loadLibrary("stingion.Practice1.class");
+//        System.loadLibrary("stingion.Practice1.class");
 
         // load the Spring context
        // ApplicationContext context = new ClassPathXmlApplicationContext("spring-context/spring-config.xml");
