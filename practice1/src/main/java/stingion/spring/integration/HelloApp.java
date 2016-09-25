@@ -7,7 +7,6 @@ package stingion.spring.integration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import stingion.practice2.Ok;
-import stingion.practice2.SayWord;
 
 
 /**
@@ -20,13 +19,13 @@ public class HelloApp {
 //        System.loadLibrary("stingion.Practice1.class");
 
         // load the Spring context
-       // ApplicationContext context = new ClassPathXmlApplicationContext("spring-context/spring-config.xml");
+        // ApplicationContext context = new ClassPathXmlApplicationContext("spring-context/spring-config.xml");
 
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-context5.xml", Ok.class);
 //        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-context5.xml");
 //        ApplicationContext ac = new ClassPathXmlApplicationContext("stingion/practice2/spring-context5.xml");
 
-        System.out.println(((SayWord)ac.getBean("sayWord")).says());
+//        System.out.println(((SayWord)ac.getBean("sayWord")).says());
 
         //System.out.println((String) context2.getBean("word"));
         //System.out.println((String) context2.getBean(""));
@@ -53,5 +52,19 @@ public class HelloApp {
 
         //TimeUnit.MILLISECONDS.sleep(5000);
         ((ClassPathXmlApplicationContext) ac).close();
+
+//        Okey okey = new Okey();
+//        Number i = new Integer(1);
+//        okey.m1(i);
+    }
+}
+
+class Okey {
+    public void m1(Number num) {
+        System.out.println("num");
+    }
+
+    public void m1(Integer num) {
+        System.out.println("Integer");
     }
 }

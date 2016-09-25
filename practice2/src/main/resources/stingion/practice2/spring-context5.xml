@@ -19,6 +19,10 @@
         <constructor-arg value="Hello5"/>
     </bean>
 
+    <bean id="itisbean" class="stingion.spring.ItIsBean" scope="singleton" init-method="init" destroy-method="destroy">
+        <property name="str" value="setValue"/>
+    </bean>
+
     <!--<bean id="without" class="stingion.practice2.Without">-->
         <!--<property name="inter" value="2"/>-->
         <!--<property name="str" value="abc"/>-->
