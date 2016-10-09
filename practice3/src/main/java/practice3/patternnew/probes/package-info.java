@@ -1,1 +1,0 @@
-package practice3.patternnew.probes;
