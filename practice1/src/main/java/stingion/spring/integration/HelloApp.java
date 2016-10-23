@@ -6,7 +6,6 @@ package stingion.spring.integration;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import stingion.practice2.Ok;
 
 
 /**
@@ -19,9 +18,11 @@ public class HelloApp {
 //        System.loadLibrary("stingion.Practice1.class");
 
         // load the Spring context
-        // ApplicationContext context = new ClassPathXmlApplicationContext("spring-context/spring-config.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-context/spring-config2.xml",
+                                                                        "spring-context/spring-config3.xml");
 
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-context5.xml", Ok.class);
+//        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-context5.xml", Ok.class);
+//        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-context/spring-context.xml");
 //        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-context5.xml");
 //        ApplicationContext ac = new ClassPathXmlApplicationContext("stingion/practice2/spring-context5.xml");
 
@@ -51,11 +52,12 @@ public class HelloApp {
         //ac.close();
 
         //TimeUnit.MILLISECONDS.sleep(5000);
-        ((ClassPathXmlApplicationContext) ac).close();
+//        ((ClassPathXmlApplicationContext) ac).close();
 
 //        Okey okey = new Okey();
 //        Number i = new Integer(1);
 //        okey.m1(i);
+        System.out.println(context.getBean("workN"));
     }
 }
 

@@ -13,18 +13,23 @@
 
     <context:annotation-config/>
 
-    <integration:channel id="inputChannel"/>
+    <!--<integration:channel id="inputChannel"/>-->
 
-    <integration:channel id="outputChannel">
-        <integration:queue capacity="1"/>
-    </integration:channel>
+    <!--<integration:channel id="outputChannel">-->
+        <!--<integration:queue capacity="1"/>-->
+    <!--</integration:channel>-->
 
-    <integration:service-activator input-channel="inputChannel"
-                       output-channel="outputChannel"
-                       ref="helloService"
-                       method="sayHello"/>
+    <!--<integration:service-activator input-channel="inputChannel"-->
+                       <!--output-channel="outputChannel"-->
+                       <!--ref="helloService"-->
+                       <!--method="sayHello"/>-->
+    <!---->
+    <!--<bean id="helloService" class="stingion.spring.integration.in2.HelloService"/>-->
 
-    <bean id="helloService" class="stingion.spring.integration.in2.HelloService"/>
+    <bean id="workN123" class="java.lang.String">
+        <constructor-arg value="_ABC_" />
+    </bean>
 
+    <alias name="workN123" alias="workN"/>
 
 </beans>
