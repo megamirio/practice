@@ -19,7 +19,7 @@ public class UploadObjectSingleOperation {
     private static String imageURL = "https://habrastorage.org/getpro/habr/post_images/c03/e8e/392/c03e8e39256cfc42e43df04df9f5318d.png";
     //return "https://bigbigdeals.co.uk/images/c03e8e39256cfc42e43df04df9f5318d.png";
 
-    private static ImageURLParser amazoneImagesUtils = new ImageURLParser();
+    private static AmazonS3ImageURLParts amazoneImagesUtils = new AmazonS3ImageURLParts(imageURL);
 
     public static void main(String[] args) throws IOException {
 
@@ -29,10 +29,10 @@ public class UploadObjectSingleOperation {
 
         try {
             System.out.println("Uploading a new object to S3 from a file\n");
-            File file = new File(amazoneImagesUtils.getImage(imageURL));
+            File file = new File(amazoneImagesUtils.getImage());
             FileUtils.copyURLToFile(new URL(imageURL), file);
             s3client.putObject(new PutObjectRequest(
-                    bucketName, amazoneImagesUtils.getRelativePathToImage(imageURL), file));
+                    bucketName, amazoneImagesUtils.getRelativePath(), file));
             FileUtils.forceDelete(file);
 
         } catch (AmazonServiceException ase) {

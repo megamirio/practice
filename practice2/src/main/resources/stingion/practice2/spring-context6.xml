@@ -12,27 +12,9 @@
     <context:component-scan base-package="stingion.practice2"/>
     <context:component-scan base-package="stingion.newek.two"/>
 
+    <alias name="abc" alias="abcAlias"/>
+    <bean id="abc" class="stingion.newek.one.Abc"/>
 
-    <bean id="word" class="java.lang.String">
-        <constructor-arg value="Hello5"/>
-    </bean>
-
-    <!--<bean id="itisbean" class="stingion.spring.ItIsBean" scope="singleton" init-method="init" destroy-method="destroy">-->
-    <!--<property name="str" value="setValue"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="without" class="stingion.practice2.Without">-->
-    <!--<property name="inter" value="2"/>-->
-    <!--<property name="str" value="abc"/>-->
-    <!--</bean>-->
-
-    <bean class="java.lang.Integer">
-        <constructor-arg value="3"/>
-    </bean>
-
-    <bean id="tempo2" class="stingion.newek.two.Temp" init-method="out">
-        <property name="abc" ref="abcAlias"/>
-    </bean>
 
 </beans>
 
