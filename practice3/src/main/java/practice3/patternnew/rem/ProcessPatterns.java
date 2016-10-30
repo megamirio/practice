@@ -55,14 +55,14 @@ public class ProcessPatterns {
     }
 
     public static List<Integer> donePatterns() {
-        return Arrays.asList(300, 200, 301);
+        return Arrays.asList(300, 200, 301, 201, 102, 100, 101, 104, 307, 207, 305, 203);
     }
 
     public static void main(String[] args) {
 
         StringBuilder output = new StringBuilder();
 
-        output.append(">>> Processed Design Patterns: <<<\n");
+        output.append(">>> Processed Design Patterns (DONE_COUNT): <<<\n");
         creationalPatterns().forEach((k, v) -> {
             output.append(donePatterns().contains(k) ? ((++DONE_COUNT) + ") " + v + "\n") : "");
         });
@@ -73,7 +73,7 @@ public class ProcessPatterns {
             output.append(donePatterns().contains(k) ? ((++DONE_COUNT) + ") " + v + "\n") : "");
         });
 
-        output.append("\n>>> To be done Design Patterns: <<<\n");
+        output.append("\n>>> To be done Design Patterns (TO_BE_DONE_COUNT): <<<\n");
         output.append(">>> (creational) <<<\n");
         creationalPatterns().forEach((k, v) -> {
             output.append(!donePatterns().contains(k) ? ((++TO_BE_DONE_COUNT) + ") " + v + "\n") : "");
@@ -87,8 +87,13 @@ public class ProcessPatterns {
             output.append(!donePatterns().contains(k) ? ((++TO_BE_DONE_COUNT) + ") " + v + "\n") : "");
         });
 
+        output.append("\nConclusion:\n");
         output.append("Design patterns: total count = " + (TO_BE_DONE_COUNT + DONE_COUNT)
                 + ", done: " + DONE_COUNT + ", to be done: " + TO_BE_DONE_COUNT + "\n");
+
+        output.replace(0, output.length() - 1, (output.toString().replaceFirst("DONE_COUNT", String.valueOf(DONE_COUNT))
+                .replaceFirst("TO_BE_DONE_COUNT", String.valueOf(TO_BE_DONE_COUNT))));
+
         System.out.println(output.toString());
 
         //See on jetty server (http://localhost:4555/patterns)
@@ -97,5 +102,7 @@ public class ProcessPatterns {
         service.init();
         service.get("/patterns", (rq, rs) -> output.toString().replaceAll("\n", "<br />")
                 .replace(">>> ", "&nbsp;&nbsp;&nbsp;<font color=\"blue\">>>> </font>"));
+
+        System.out.println("See webpage: http://localhost:4555/patterns");
     }
 }
