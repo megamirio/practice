@@ -18,14 +18,14 @@ import java.util.Random;
 @RequestMapping("/welcome")
 public class HelloController {
 
-    @Autowired
-    @Qualifier("inputChannel")
-    MessageChannel channel;
+//    @Autowired
+//    @Qualifier("inputChannel")
+//    MessageChannel channel;
 
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
-
-        channel.send(MessageBuilder.withPayload("Let's get random number: " + new Random().nextInt(Integer.MAX_VALUE)).build());
+//
+//        channel.send(MessageBuilder.withPayload("Let's get random number: " + new Random().nextInt(Integer.MAX_VALUE)).build());
 
         model.addAttribute("message", "Spring 3 MVC Hello World");
         return "hello";
