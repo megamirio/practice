@@ -55,7 +55,7 @@ public class ProcessPatterns {
     }
 
     public static List<Integer> donePatterns() {
-        return Arrays.asList(300, 200, 301, 201, 102, 100, 101, 104, 307, 207, 305, 203, 311, 204, 308);
+        return Arrays.asList(300, 200, 301, 201, 102, 100, 101, 104, 307, 207, 305, 203, 311, 204, 308, 202);
     }
 
     public static void main(String[] args) {
