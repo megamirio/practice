@@ -26,6 +26,11 @@ public class MyWebSocketServlet extends WebSocketServlet {
 
 
     @Override
+    protected StreamInbound createWebSocketInbound(String subProtocol) {
+        return null;
+    }
+
+    //    @Override
     public StreamInbound createWebSocketInbound(String protocol,
                                                    HttpServletRequest httpServletRequest) {
 
