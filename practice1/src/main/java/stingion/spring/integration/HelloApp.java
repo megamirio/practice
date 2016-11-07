@@ -19,7 +19,7 @@ public class HelloApp {
 
         // load the Spring context
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-context/spring-config2.xml",
-                                                                        "spring-context/spring-config3.xml");
+                "spring-context/spring-config3.xml");
 
 //        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-context5.xml", Ok.class);
 //        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-context/spring-context.xml");
@@ -58,6 +58,10 @@ public class HelloApp {
 //        Number i = new Integer(1);
 //        okey.m1(i);
         System.out.println(context.getBean("workN"));
+
+        ApplicationContext contextNext = new ClassPathXmlApplicationContext("spring-context/contextTest.xml");
+        System.out.println(contextNext.getBean("gonow", GoNow.class));
+//        System.out.println(contextNext.getBean("gonow2", GoNow.class));
     }
 }
 
