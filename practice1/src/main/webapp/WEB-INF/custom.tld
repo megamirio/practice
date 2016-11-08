@@ -3,11 +3,13 @@
     <jsp-version>2.0</jsp-version>
     <short-name>Example TLD</short-name>
     <tag>
+        <description>Output simple constant text</description>
         <name>h</name>
         <tag-class>stingion.jsp.HelloTag</tag-class>
         <body-content>empty</body-content>
     </tag>
     <tag>
+        <description>Add text with attributes treated as text</description>
         <name>ha</name>
         <tag-class>stingion.jsp.HelloAdvanceTag</tag-class>
         <body-content>scriptless</body-content>
