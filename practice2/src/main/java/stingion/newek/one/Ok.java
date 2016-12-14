@@ -2,6 +2,7 @@ package stingion.newek.one;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import stingion.newek.Good;
 import stingion.newek.two.Temp;
 import stingion.practice2.SayWord;
 
@@ -10,12 +11,18 @@ import stingion.practice2.SayWord;
  */
 public class Ok {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:stingion/practice2/spring-context6.xml",
-                "classpath*:stingion/practice2/spring-context5.xml");
-        Abc abc = context.getBean("abcAlias", Abc.class);
-        Temp temp = context.getBean("tempo2", Temp.class);
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:stingion/practice2/spring-context5.xml");
 
-        System.out.println(temp);
-        System.out.println(temp.getAbc());
+//        System.out.println(context.getBean("tempo", String.class));
+//        System.out.println(context.getBean("abc", String.class));
+//        System.out.println(context.getBean("abc222", String.class));
+
+        Good good = context.getBean("good", Good.class);
+        System.out.println(good.getIn());
+        Good good2 = context.getBean("good", Good.class);
+        System.out.println(good2.getIn());
+        System.out.println(good.getInGood());
+        System.out.println(good.getInGood());
+        System.out.println(good.getInGood());
     }
 }

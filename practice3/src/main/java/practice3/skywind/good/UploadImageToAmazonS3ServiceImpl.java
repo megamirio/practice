@@ -48,16 +48,16 @@ public class UploadImageToAmazonS3ServiceImpl {
 
         String bucketName = siteConfigService.getProperty(AMAZON_BUCKET_NAME);
 
-        AmazonS3ImageURLParts amazonS3ImageURLParts = new AmazonS3ImageURLParts(imageURL);
+        AmazonS3ImageURLParts amazonS3ImageURLParts = null;// new AmazonS3ImageURLParts(imageURL);
         File file = new File(amazonS3ImageURLParts.getImageWithUniqueSuffix());
         FileUtils.copyURLToFile(new URL(imageURL), file);
 
-        s3client.putObject(new PutObjectRequest(
-                bucketName, amazonS3ImageURLParts.getRelativePathWithImageUnique(), file));
+//        s3client.putObject(new PutObjectRequest(
+//                bucketName, amazonS3ImageURLParts.getRelativePathWithImageUnique(), file));
 
         FileUtils.forceDelete(file);
-        return new StringBuilder("https://").append(bucketName).append("/")
-                .append(amazonS3ImageURLParts.getRelativePathWithImageUnique()).toString();
+        return null;// new StringBuilder("https://").append(bucketName).append("/")
+                //.append(amazonS3ImageURLParts.getRelativePathWithImageUnique()).toString();
     }
 
     private String reconnectAndUpload() throws IOException {

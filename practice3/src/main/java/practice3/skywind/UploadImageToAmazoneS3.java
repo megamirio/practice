@@ -35,14 +35,14 @@ public class UploadImageToAmazoneS3 {
         this.bucketName = bucketName;
     }
 
-    public void upload(String imageURL) throws IOException {
+    public void upload(String imageURL) throws Exception {
         try {
-            AmazonS3ImageURLParts amazonS3ImageURLParts = new AmazonS3ImageURLParts(imageURL);
+            AmazonS3ImageURLParts amazonS3ImageURLParts = AmazonS3ImageURLParts.getInstance(imageURL);
             File file = new File(amazonS3ImageURLParts.getImageWithUniqueSuffix());
             FileUtils.copyURLToFile(new URL(imageURL), file);
 
             s3client.putObject(new PutObjectRequest(
-                    bucketName, amazonS3ImageURLParts.getRelativePathWithImageUnique(), file));
+                    bucketName, amazonS3ImageURLParts.getNewRelativePathWithImage(), file));
 
             FileUtils.forceDelete(file);
 

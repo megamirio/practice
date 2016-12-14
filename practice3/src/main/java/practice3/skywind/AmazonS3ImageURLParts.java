@@ -1,72 +1,35 @@
 package practice3.skywind;
 
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AmazonS3ImageURLParts {
 
-    private StringBuilder url;
+    public static final String URL_PATTERN_MASK =
+            "(?<domain>http[s]{0,1}://[A-Za-z0-9.]+)/(?<path>[A-Za-z0-9-_/]+/(?<image>(?<imageName>[A-Za-z0-9-_]+)[.](?<imageExt>[A-Za-z0-9]+)))";
 
-    private String relativePath;
-    private String image;
-    private String imageUniqueExtension;
+    public static String URL_BASE_DIR = "tempo";
 
-    public AmazonS3ImageURLParts(String url) {
-        this.url = new StringBuilder(url);
-        processWithFieldAssigning();
-    }
+    protected static Pattern URL_PATTERN = Pattern.compile(URL_PATTERN_MASK);
 
-    /**
-     * Method contains math. logic of processing
-     */
-    public void processWithFieldAssigning() {
+    private String newRelativePathWithImage;
+    private String imageWithUniqueSuffix;
 
-        image = new StringBuilder(imageName()).append(".").append(imageExtension()).toString();
-        imageUniqueExtension = new StringBuilder(imageName()).append("_").append(UUID.randomUUID()).append(".")
-                .append(imageExtension()).toString();
-        relativePath = url.substring(indexOfSlashAfterDomain() + 1, url.length() - indexOfSlashBeforeImage() - 1);
-    }
-
-    private int indexOfSlashAfterDomain() {
-        final String ANY_SYMBOL = "0";
-
-        return url.toString().replaceFirst("/", ANY_SYMBOL)
-                .replaceFirst("/", ANY_SYMBOL).indexOf("/");
-    }
-
-    private int indexOfSlashBeforeImage() {
-        url.reverse();
-        try {
-            return url.indexOf("/");
-        } finally {
-            url.reverse();
+    private AmazonS3ImageURLParts(String url) throws Exception {
+        Matcher matcher = URL_PATTERN.matcher(url);
+        if (!matcher.matches()) {
+            throw new Exception("url: " + url);
         }
+
+        imageWithUniqueSuffix = new StringBuilder(matcher.group("imageName")).append("_").append(UUID.randomUUID())
+                .append(".").append(matcher.group("imageExt")).toString();
+
+        newRelativePathWithImage = new StringBuilder(URL_BASE_DIR).append("/").append(matcher.group("image")).toString();
     }
 
-    private int indexOfDotBeforeImageExtension() {
-        url.reverse();
-        try {
-            return url.indexOf(".");
-        } finally {
-            url.reverse();
-        }
-    }
-
-    private String imageName() {
-        return url.substring(url.length() - indexOfSlashBeforeImage(),
-                url.length() - indexOfDotBeforeImageExtension() - 1);
-    }
-
-    private String imageExtension() {
-        return url.substring(url.length() - indexOfDotBeforeImageExtension());
-    }
-
-    /**
-     * Example:
-     * if image name is: http://example.com/some/dir/any.png
-     * then result is: any.png
-     */
-    public String getImage() {
-        return image;
+    public static AmazonS3ImageURLParts getInstance(String url) throws Exception {
+        return new AmazonS3ImageURLParts(url);
     }
 
     /**
@@ -75,23 +38,11 @@ public class AmazonS3ImageURLParts {
      * then result is like this: any_sdsdfAdsf23.png
      */
     public String getImageWithUniqueSuffix() {
-        return imageUniqueExtension;
+        return imageWithUniqueSuffix;
+
     }
 
-    /**
-     * Example:
-     * if image name is: http://example.com/some/dir/any.png
-     * then result is: some/dir
-     */
-    public String getRelativePath() {
-        return relativePath;
-    }
-
-    public String getRelativePathWithImage() {
-        return new StringBuilder(relativePath).append("/").append(image).toString();
-    }
-
-    public String getRelativePathWithImageUnique() {
-        return new StringBuilder(relativePath).append("/").append(imageUniqueExtension).toString();
+    public String getNewRelativePathWithImage() {
+        return newRelativePathWithImage;
     }
 }
