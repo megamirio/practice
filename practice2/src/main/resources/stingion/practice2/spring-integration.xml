@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="/AConfig" class="stingion.newek.one.AConfig"/>
+
+    <!--<context:component-scan base-package="stingion.practice2"/>-->
+    <!--<context:component-scan base-package="stingion.newek.two"/>-->
+
+
+    <!--<bean id="word" class="java.lang.String">-->
+        <!--<constructor-arg value="Hello5"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="itisbean" class="stingion.spring.ItIsBean" scope="singleton" init-method="init" destroy-method="destroy">-->
+    <!--<property name="str" value="setValue"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="without" class="stingion.practice2.Without">-->
+    <!--<property name="inter" value="2"/>-->
+    <!--<property name="str" value="abc"/>-->
+    <!--</bean>-->
+
+    <!--<bean class="java.lang.Integer">-->
+        <!--<constructor-arg value="3"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="tempo2" class="stingion.newek.two.Temp" init-method="out">-->
+        <!--<property name="abc" ref="abcAlias"/>-->
+    <!--</bean>-->
+
+    <bean id="tempo111" class="java.lang.String">
+        <constructor-arg value="OKEY"/>
+    </bean>
+
+    <!--<bean id="tempo" class="java.lang.String">-->
+        <!--<constructor-arg value="OKEY333"/>-->
+    <!--</bean>-->
+
+    <bean id="inGood" class="stingion.newek.two.InGood" scope="prototype"/>
+
+    <bean id="good" class="stingion.newek.Good"/>
+
+</beans>
+
