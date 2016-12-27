@@ -37,35 +37,42 @@ class ThreadOne implements Callable<Integer> {
 
 public class Threader {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        System.out.println(Thread.currentThread().getName());
-        List list = new LinkedList();
+//        System.out.println(Thread.currentThread().getName());
+//        List list = new LinkedList();
+//
+//        for (int i = 0; i < 5000000; i++) {
+//            list.add(new Object());
+//        }
+//
+//        List<Future<Integer>> futureslist = new ArrayList<>();
+//
+//        ConcurrentLinkedQueue<Object> queue = new ConcurrentLinkedQueue<>(list);
+//
+//        ConcurrentLinkedQueue<Integer> queueOne = new ConcurrentLinkedQueue<>();
+//
+//        int amount = 10;
+//        ExecutorService executor = Executors.newFixedThreadPool(amount);
+//
+//        long b = System.nanoTime();
+//        for (int i = 0; i < amount; i++) {
+//            futureslist.add(executor.submit(new ThreadOne(queue, queueOne)));
+//        }
+//
+//        executor.shutdown();
+//
+//        for (Future<Integer> future : futureslist) {
+//            future.get();
+//        }
+//        long e = System.nanoTime();
+//        long r = e - b;
+//        System.out.println(((double) r) / 1000000000);
+//        System.out.println(queueOne.size());
 
-        for (int i = 0; i < 5000000; i++) {
-            list.add(new Object());
+        List list2 = null;// = new ArrayList();
+        //list2.add("one");
+
+        for(Object o:list2){
+
         }
-
-        List<Future<Integer>> futureslist = new ArrayList<>();
-
-        ConcurrentLinkedQueue<Object> queue = new ConcurrentLinkedQueue<>(list);
-
-        ConcurrentLinkedQueue<Integer> queueOne = new ConcurrentLinkedQueue<>();
-
-        int amount = 10;
-        ExecutorService executor = Executors.newFixedThreadPool(amount);
-
-        long b = System.nanoTime();
-        for (int i = 0; i < amount; i++) {
-            futureslist.add(executor.submit(new ThreadOne(queue, queueOne)));
-        }
-
-        executor.shutdown();
-
-        for (Future<Integer> future : futureslist) {
-            future.get();
-        }
-        long e = System.nanoTime();
-        long r = e - b;
-        System.out.println(((double) r) / 1000000000);
-        System.out.println(queueOne.size());
     }
 }
