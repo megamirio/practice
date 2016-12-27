@@ -13,11 +13,23 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="stingion.practice2"/>
+    <context:component-scan base-package="stingion.texty"/>
 
     <bean id="word" class="java.lang.String">
         <constructor-arg value="Hello2"/>
     </bean>
 
+    <beans profile="one, default">
+        <bean id="bulka" class="java.lang.String">
+            <constructor-arg value="Z makom"/>
+        </bean>
+    </beans>
 
+    <beans profile="two">
+        <bean id="bulka" class="java.lang.String">
+            <constructor-arg value="Z varennyam"/>
+        </bean>
+    </beans>
+
+    <!--<bean id="bullak" class="stingion.TaddyBear"/>-->
 </beans>
