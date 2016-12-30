@@ -6,9 +6,6 @@ import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -50,7 +47,10 @@ public class SpringProbes {
         ctx.getEnvironment().setActiveProfiles("default");
         ctx.refresh();
         print(ctx);
-        ctx.close();
+//        ctx.close();
+
+        System.out.println(ctx.getEnvironment().getSystemProperties());
+        System.out.println(ctx.getEnvironment().getProperty("java.library.path"));
     }
 
     private static void print(ApplicationContext ctx) {

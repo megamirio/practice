@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:integration="http://www.springframework.org/schema/integration"
-       xmlns:beans="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/context
-                           http://www.springframework.org/schema/context/spring-context.xsd
-                           http://www.springframework.org/schema/integration
-                           http://www.springframework.org/schema/integration/spring-integration.xsd">
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <context:annotation-config/>
+    <!--<context:annotation-config/>-->
 
-    <context:component-scan base-package="stingion.texty"/>
+    <!--<context:component-scan base-package="stingion.texty"/>-->
 
-    <bean id="word" class="java.lang.String">
-        <constructor-arg value="Hello2"/>
+    <!--<bean id="word" class="java.lang.String">-->
+    <!--<constructor-arg value="Hello2"/>-->
+    <!--</bean>-->
+
+    <!--<beans profile="one, default">-->
+    <!--<bean id="bulka" class="java.lang.String">-->
+    <!--<constructor-arg value="Z makom"/>-->
+    <!--</bean>-->
+    <!--</beans>-->
+
+    <!--<beans profile="two">-->
+    <!--<bean id="bulka" class="java.lang.String">-->
+    <!--<constructor-arg value="Z varennyam"/>-->
+    <!--</bean>-->
+    <!--</beans>-->
+
+    <bean id="message" class="stingion.event3er.Message">
+        <property name="content" value="Hello World!"/>
     </bean>
 
-    <beans profile="one, default">
-        <bean id="bulka" class="java.lang.String">
-            <constructor-arg value="Z makom"/>
-        </bean>
-    </beans>
+    <bean id="c1Handler"
+          class="stingion.event3er.C1Handler"/>
 
-    <beans profile="two">
-        <bean id="bulka" class="java.lang.String">
-            <constructor-arg value="Z varennyam"/>
-        </bean>
-    </beans>
+    <bean id="c2Handler"
+          class="stingion.event3er.C2Handler"/>
 
+    <bean class="stingion.event4er.MyEventPublisher"/>
+
+    <bean class="stingion.event4er.MyEventListener"/>
+    <bean class="stingion.event4er.MyEventListener"/>
+    <bean class="stingion.event4er.MyEventListener"/>
     <!--<bean id="bullak" class="stingion.TaddyBear"/>-->
 </beans>
