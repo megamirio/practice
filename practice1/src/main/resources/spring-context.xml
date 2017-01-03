@@ -40,4 +40,18 @@
     <bean class="stingion.event4er.MyEventListener"/>
     <bean class="stingion.event4er.MyEventListener"/>
     <!--<bean id="bullak" class="stingion.TaddyBear"/>-->
+
+    <bean id="emailService" class="stingion.event4er.blacklist.EmailService">
+        <property name="backList">
+            <list>
+                <value>email1@gamil.com</value>
+                <value>email2@gamil.com</value>
+                <value>email3@gamil.com</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="blackListNofifier" class="stingion.event4er.blacklist.BlackListNotifier">
+        <property name="notificationAddress" value="blacklist@gamil.com"/>
+    </bean>
 </beans>
