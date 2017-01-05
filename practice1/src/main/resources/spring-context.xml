@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--<context:annotation-config/>-->
 
@@ -23,6 +26,7 @@
     <!--<constructor-arg value="Z varennyam"/>-->
     <!--</bean>-->
     <!--</beans>-->
+    <context:annotation-config/>
 
     <bean id="message" class="stingion.event3er.Message">
         <property name="content" value="Hello World!"/>
@@ -53,5 +57,11 @@
 
     <bean id="blackListNofifier" class="stingion.event4er.blacklist.BlackListNotifier">
         <property name="notificationAddress" value="blacklist@gamil.com"/>
+    </bean>
+
+    <bean id="person" class="stingion.validation.Person">
+        <property name="id" value="10"/>
+        <!--<property name="name" value="One"/>-->
+        <property name="email" value="oek@gd.t"/>
     </bean>
 </beans>
