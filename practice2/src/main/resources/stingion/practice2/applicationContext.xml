@@ -25,18 +25,21 @@
         <property name="pointcut" ref="methodNamePointcut"/>
         <property name="advice" ref="animalAdvice"/>
     </bean>
-    <bean id="autoProxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+    <!--<bean id="autoProxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">-->
+        <!--<property name="proxyTargetClass" value="true"/>-->
+        <!--<property name="beanNames">-->
+            <!--<list>-->
+                <!--<value>tiger</value>-->
+                <!--<value>albatross</value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="interceptorNames">-->
+            <!--<list>-->
+                <!--<value>animalAdvisor</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" >
         <property name="proxyTargetClass" value="true"/>
-        <property name="beanNames">
-            <list>
-                <value>tiger</value>
-                <value>albatross</value>
-            </list>
-        </property>
-        <property name="interceptorNames">
-            <list>
-                <value>animalAdvisor</value>
-            </list>
-        </property>
     </bean>
 </beans>

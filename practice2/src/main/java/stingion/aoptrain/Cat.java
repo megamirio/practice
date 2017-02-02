@@ -30,4 +30,9 @@ public class Cat implements Animal {
     public Boolean hasHotBlood() {
         return true;
     }
+
+    @Override
+    public boolean isGood() {
+        return true;
+    }
 }

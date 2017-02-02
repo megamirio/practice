@@ -11,4 +11,6 @@ public interface Animal {
     boolean hasFur();
 
     Boolean hasHotBlood();
+
+    boolean isGood();
 }

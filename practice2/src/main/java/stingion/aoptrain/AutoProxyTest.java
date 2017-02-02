@@ -12,7 +12,12 @@ public class AutoProxyTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(paths);
         Cat tiger = (Cat) ctx.getBean("tiger");
         tiger.hasHotBlood();
+        tiger.getNumberPaws();
+        tiger.isGood();
+
         Bird albatross = (Bird) ctx.getBean("albatross");
         albatross.hasBeak();
+        albatross.getNumberPaws();
+        albatross.isGood();
     }
 }

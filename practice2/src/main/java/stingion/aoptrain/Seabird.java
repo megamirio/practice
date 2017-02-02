@@ -35,4 +35,9 @@ public class Seabird implements Bird {
     public Boolean hasHotBlood() {
         return false;
     }
+
+    @Override
+    public boolean isGood() {
+        return false;
+    }
 }

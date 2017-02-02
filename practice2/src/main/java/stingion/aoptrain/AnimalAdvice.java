@@ -15,8 +15,8 @@ public class AnimalAdvice implements MethodInterceptor {
         Object retVal = invocation.proceed();
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Target Class:").append(invocation.getThis()).append("n").append(invocation.getMethod()).append("n");
-        sb.append(" return value:").append(retVal).append("n");
+        sb.append("Target Class:").append(invocation.getThis()).append("\n").append(invocation.getMethod()).append("\n");
+        sb.append(" return value:").append(retVal).append("\n");
         log.info(sb.toString());
         return retVal;
     }
