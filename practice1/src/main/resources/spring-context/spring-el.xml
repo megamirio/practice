@@ -7,23 +7,25 @@
 	                       http://www.springframework.org/schema/context
 	                       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id="itemBean" class="stingion.spring.el.Item">
-        <property name="name" value="itemA"/>
-        <property name="qty" value="10"/>
-    </bean>
+    <!--<bean id="itemBean" class="stingion.spring.el.Item">-->
+        <!--<property name="name" value="itemA"/>-->
+        <!--<property name="qty" value="10"/>-->
+    <!--</bean>-->
 
-    <bean id="customerBean" class="stingion.spring.el.Customer">
-        <property name="item" value="#{itemBean}"/>
-        <property name="itemName" value="#{itemBean.name}"/>
-    </bean>
+    <!--<bean id="customerBean" class="stingion.spring.el.Customer">-->
+        <!--<property name="item" value="#{itemBean}"/>-->
+        <!--<property name="itemName" value="#{itemBean.name}"/>-->
+    <!--</bean>-->
 
-    <context:component-scan base-package="stingion.spring.el"/>
+    <!--<context:component-scan base-package="stingion.spring.el"/>-->
 
 
-    <bean id="oxy" class="stingion.spring.el.Oxy" scope="singleton">
-        <property name="inOxy" value="#in" ref="inOxy"/>
-    </bean>
+    <!--<bean id="oxy" class="stingion.spring.el.Oxy" scope="singleton">-->
+        <!--<property name="inOxy" value="#in" ref="inOxy"/>-->
+    <!--</bean>-->
 
-    <bean id="inOxy" class="stingion.spring.el.InOxy" scope="prototype"/>
+    <!--<bean id="inOxy" class="stingion.spring.el.InOxy" scope="prototype"/>-->
+
+    <bean id="itis" class="stingion.spring.el.Itis" init-method="inter"/>
 
 </beans>

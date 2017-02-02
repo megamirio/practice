@@ -1,6 +1,6 @@
 package stingion.spring.integration.in2;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.messaging.MessageChannel;
@@ -23,13 +23,13 @@ import org.springframework.messaging.support.GenericMessage;
  */
 public class HelloWorldApp {
 
-    private static Logger logger = Logger.getLogger(HelloWorldApp.class);
+//    private static Logger logger = Logger.getLogger(HelloWorldApp.class);
 
     public static void main(String[] args) {
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("/spring-context/contexts-bundle.xml");
         MessageChannel inputChannel = context.getBean("inputChannel", MessageChannel.class);
         PollableChannel outputChannel = context.getBean("outputChannel", PollableChannel.class);
         inputChannel.send(new GenericMessage<>("World"));
-        logger.info("==> HelloWorldDemo: " + outputChannel.receive(0).getPayload());
+//        logger.info("==> HelloWorldDemo: " + outputChannel.receive(0).getPayload());
     }
 }

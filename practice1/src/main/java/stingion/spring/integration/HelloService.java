@@ -1,6 +1,6 @@
 package stingion.spring.integration;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class HelloService {
 
-    static final Logger logger = Logger.getLogger(HelloService.class);
+//    static final Logger logger = Logger.getLogger(HelloService.class);
 
     public Integer negativeNumber(Integer number) {
         System.out.println("Negative number:  " + number);
