@@ -9,45 +9,44 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="stingion.practice2"/>
+    <bean id="/AConfig" class="stingion.newek.one.AConfig"/>
 
-    <bean id="word" class="java.lang.String">
-        <constructor-arg value="Hello5"/>
-    </bean>
+    <!--<context:component-scan base-package="stingion.practice2"/>-->
+    <!--<context:component-scan base-package="stingion.newek.two"/>-->
 
-    <!--<bean id="itisbean" class="stingion.spring.ItIsBean" scope="singleton" init-method="init" destroy-method="destroy">
-        <property name="str" value="setValue"/>
-    </bean>-->
+
+    <!--<bean id="word" class="java.lang.String">-->
+        <!--<constructor-arg value="Hello5"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="itisbean" class="stingion.spring.ItIsBean" scope="singleton" init-method="init" destroy-method="destroy">-->
+    <!--<property name="str" value="setValue"/>-->
+    <!--</bean>-->
 
     <!--<bean id="without" class="stingion.practice2.Without">-->
     <!--<property name="inter" value="2"/>-->
     <!--<property name="str" value="abc"/>-->
     <!--</bean>-->
 
-    <bean class="java.lang.Integer">
-        <constructor-arg value="3"/>
+    <!--<bean class="java.lang.Integer">-->
+        <!--<constructor-arg value="3"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="tempo2" class="stingion.newek.two.Temp" init-method="out">-->
+        <!--<property name="abc" ref="abcAlias"/>-->
+    <!--</bean>-->
+
+    <bean id="tempo111" class="java.lang.String">
+        <constructor-arg value="OKEY"/>
     </bean>
 
-    <bean id="two" class="java.lang.Double">
-        <constructor-arg value="2.312d"/>
-    </bean>
+    <!--<bean id="tempo" class="java.lang.String">-->
+        <!--<constructor-arg value="OKEY333"/>-->
+    <!--</bean>-->
 
-    <bean id="one" class="java.lang.Double">
-        <constructor-arg value="-22.312d"/>
-    </bean>
+    <bean id="inGood" class="stingion.newek.two.InGood" scope="prototype"/>
 
-    <bean id="olu" class="stingion.practice2.OneLookUp" scope="prototype"/>
-
-    <bean id="q" class="stingion.practice2.Quick">
-        <property name="f" ref="olu"/>
-    </bean>
-
-    <bean id="ff" class="java.lang.Float" scope="prototype">
-        <constructor-arg value="131.3f"/>
-    </bean>
-
-    <bean id="in" class="java.lang.Double" scope="prototype">
-        <constructor-arg value="3.3"/>
-    </bean>
+    <bean id="good" class="stingion.newek.Good"/>
 
 </beans>
+

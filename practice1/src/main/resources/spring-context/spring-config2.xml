@@ -13,16 +13,10 @@
 
     <context:annotation-config/>
 
-    <!--<context:component-scan base-package="stingion.practice2"/>-->
+    <context:component-scan base-package="stingion.practice2"/>
 
-    <!--<bean id="word" class="java.lang.String">-->
-        <!--<constructor-arg value="HI"/>-->
-    <!--</bean>-->
-
-    <bean id="workN" class="java.lang.String">
-        <constructor-arg value="ABC" />
+    <bean id="word" class="java.lang.String">
+        <constructor-arg value="HI"/>
     </bean>
-
-
 
 </beans>

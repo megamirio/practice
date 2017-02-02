@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:integration="http://www.springframework.org/schema/integration"
+       xmlns:beans="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context
@@ -13,7 +14,7 @@
     <context:annotation-config/>
 
 
-    <!--<context:component-scan base-package="stingion.spring.integration"/>-->
+    <context:component-scan base-package="stingion.spring.integration"/>
 
     <!-- this channel is called by the application and the message is passed to it -->
     <!--<integration:channel id="inputChannel"/>-->
@@ -54,22 +55,19 @@
     <integration:service-activator input-channel="outputChannel" ref="printerService"/>
 -->
 
-    <!--<integration:channel id="controlChannel2"/>-->
+    <integration:channel id="controlChannel2"/>
 
-    <!--<integration:channel id="adapterOutputChannel">-->
-        <!--<integration:queue/>-->
-    <!--</integration:channel>-->
+    <integration:channel id="adapterOutputChannel">
+        <integration:queue/>
+    </integration:channel>
 
-    <!--<integration:control-bus input-channel="controlChannel2"/>-->
+    <integration:control-bus input-channel="controlChannel2"/>
 
-    <!--<integration:inbound-channel-adapter id="inboundAdapter"-->
-                                         <!--channel="adapterOutputChannel"-->
-                                         <!--expression="'Hello'"-->
-                                         <!--auto-startup="false">-->
-        <!--<integration:poller fixed-rate="1000"/>-->
-    <!--</integration:inbound-channel-adapter>-->
-
-    <import resource="spring-config2.xml"/>
-    <import resource="spring-config3.xml"/>
+    <integration:inbound-channel-adapter id="inboundAdapter"
+                                         channel="adapterOutputChannel"
+                                         expression="'Hello'"
+                                         auto-startup="false">
+        <integration:poller fixed-rate="1000" />
+    </integration:inbound-channel-adapter>
 
 </beans>

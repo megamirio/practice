@@ -2,22 +2,66 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:integration="http://www.springframework.org/schema/integration"
-       xmlns:beans="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context
-                           http://www.springframework.org/schema/context/spring-context.xsd
-                           http://www.springframework.org/schema/integration
-                           http://www.springframework.org/schema/integration/spring-integration.xsd">
+                           http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--<context:annotation-config/>-->
+
+    <!--<context:component-scan base-package="stingion.texty"/>-->
+
+    <!--<bean id="word" class="java.lang.String">-->
+    <!--<constructor-arg value="Hello2"/>-->
+    <!--</bean>-->
+
+    <!--<beans profile="one, default">-->
+    <!--<bean id="bulka" class="java.lang.String">-->
+    <!--<constructor-arg value="Z makom"/>-->
+    <!--</bean>-->
+    <!--</beans>-->
+
+    <!--<beans profile="two">-->
+    <!--<bean id="bulka" class="java.lang.String">-->
+    <!--<constructor-arg value="Z varennyam"/>-->
+    <!--</bean>-->
+    <!--</beans>-->
     <context:annotation-config/>
 
-    <context:component-scan base-package="stingion.practice2"/>
-
-    <bean id="word" class="java.lang.String">
-        <constructor-arg value="Hello2"/>
+    <bean id="message" class="stingion.event3er.Message">
+        <property name="content" value="Hello World!"/>
     </bean>
 
+    <bean id="c1Handler"
+          class="stingion.event3er.C1Handler"/>
 
+    <bean id="c2Handler"
+          class="stingion.event3er.C2Handler"/>
+
+    <bean class="stingion.event4er.MyEventPublisher"/>
+
+    <bean class="stingion.event4er.MyEventListener"/>
+    <bean class="stingion.event4er.MyEventListener"/>
+    <bean class="stingion.event4er.MyEventListener"/>
+    <!--<bean id="bullak" class="stingion.TaddyBear"/>-->
+
+    <bean id="emailService" class="stingion.event4er.blacklist.EmailService">
+        <property name="backList">
+            <list>
+                <value>email1@gamil.com</value>
+                <value>email2@gamil.com</value>
+                <value>email3@gamil.com</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="blackListNofifier" class="stingion.event4er.blacklist.BlackListNotifier">
+        <property name="notificationAddress" value="blacklist@gamil.com"/>
+    </bean>
+
+    <bean id="person" class="stingion.validation.Person">
+        <property name="id" value="10"/>
+        <!--<property name="name" value="One"/>-->
+        <property name="email" value="oek@gd.t"/>
+    </bean>
 </beans>
