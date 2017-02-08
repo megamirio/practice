@@ -16,7 +16,7 @@ public class Params {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("testingContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:testingContext.xml");
 
         System.out.println(context.getBean("str1Test", String.class));
 
