@@ -16,9 +16,9 @@ public class Params {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:testingContext.xml");
-
-        System.out.println(context.getBean("str1Test", String.class));
+//        ApplicationContext context = new ClassPathXmlApplicationContext("classpath*:testingContext.xml");
+//
+//        System.out.println(context.getBean("str1Test", String.class));
 
         Map<String, String> map = new HashMap<>();
         map.put("one", "okey go");

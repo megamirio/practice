@@ -1,8 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-    <bean id="str1Test" class="java.lang.String">
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="tristan" class="java.lang.String">
         <constructor-arg value="one two three"/>
     </bean>
 </beans>
