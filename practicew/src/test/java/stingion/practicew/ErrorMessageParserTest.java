@@ -1,7 +1,9 @@
 package stingion.practicew;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -12,8 +14,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:testingContext.xml")
 public class ErrorMessageParserTest {
 
+    @Autowired
+    private String one;
+
     @Test
     public void testReturnNull() {
+        Assert.assertTrue(one.length() > 0);
+        Assert.assertTrue(one.length() > 10);
     }
 
     @Test
